@@ -1,0 +1,42 @@
+:root {
+  --clr-primary: #6a4500;
+  --clr-accent: #FFA500;
+  --clr-accent-dark: #4d3200;
+  --clr-accent-light: #ffb84d;
+  --clr-bg: #f4f4f4;
+  --clr-surface: #fdfdfd;
+  --clr-white: #fff;
+  --clr-text: #333;
+
+  --clr-event: #FF6B35;
+  --clr-control: #E63946;
+  --clr-motion: #4C97FF;
+  --clr-looks: #9966FF;
+  --clr-sound: #2ECC71;
+  --clr-logic: #5ba58c;
+  --clr-math: #F39C12;
+  --clr-text-cat: #5ba58c;
+  --clr-list: #E74C3C;
+  --clr-color: #D35400;
+  --clr-system: #FF6680;
+  --clr-variable: #FF8C42;
+  --clr-function: #8E44AD;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(255, 165, 0, 0.3);
+
+  --radius-sm: 8px;
+  --radius-md: 6px;
+  --radius-lg: 4px;
+
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --toolbox-width: 300px;
+  --toolbar-height: 50px;
+  --panel-header-height: 40px;
+
+  --border-alpha: rgba(255, 255, 255, 0.2);
+}

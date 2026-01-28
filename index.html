@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Script - Visual Programming Editor</title>
+  <meta name="description" content="Create interactive programs with drag-and-drop blocks" />
+  <meta name="theme-color" content="#6a4500" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <input type="file" id="ImportFile" accept=".ES1" hidden>
+
+  <header class="toolbar">
+    <h1 class="toolbar-title">Easy Script</h1>
+
+    <input id="projectName" type="text" placeholder="Project Name" value="New Project" maxlength="50">
+
+    <div class="theme-container">
+      <label for="themeSelect">Theme:</label>
+      <select id="themeSelect">
+        <option value="Modern">Modern</option>
+        <option value="Default">Default</option>
+        <option value="Dark">Dark</option>
+      </select>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="toolbar-actions">
+      <button id="projectsBtn" type="button" title="Manage Projects">
+        <span>📁</span>
+        <span>Projects</span>
+      </button>
+      <button id="scriptsBtn" type="button" title="Manage Scripts">
+        <span>📜</span>
+        <span>Scripts</span>
+      </button>
+      <button id="Share" type="button" title="Share Project">
+        <span>🔗</span>
+        <span>Share</span>
+      </button>
+      <button id="Load" type="button" title="Load Project">
+        <span>📂</span>
+        <span>Load</span>
+      </button>
+      <button id="Save" type="button" title="Save Project">
+        <span>💾</span>
+        <span>Save</span>
+      </button>
+      <button id="Build" type="button" title="Build HTML">
+        <span>🔨</span>
+        <span>Build</span>
+      </button>
+      <button id="Run" type="button" title="Run Preview">
+        <span>▶</span>
+        <span>Run</span>
+      </button>
+    </div>
+  </header>
+
+  <aside id="projectsPanel" class="projects-panel hidden">
+    <div class="projects-panel-header">
+      <strong>Projects Manager</strong>
+      <div class="button-group">
+        <button id="toggleProjects" type="button" title="Collapse/Expand">▲</button>
+        <button id="newProject" type="button" title="New Project">+</button>
+        <button id="closeProjectsPanel" type="button" title="Close">✕</button>
+      </div>
+    </div>
+    <div id="projectsList" class="projects-list"></div>
+    <div class="resize-handle resize-handle-projects"></div>
+  </aside>
+
+  <aside id="scriptsPanel" class="scripts-panel hidden">
+    <div class="scripts-panel-header">
+      <strong>Scripts Manager</strong>
+      <div class="button-group">
+        <button id="toggleScripts" type="button" title="Collapse/Expand">▲</button>
+        <button id="addScript" type="button" title="Add Script">+</button>
+        <button id="closeScriptsPanel" type="button" title="Close">✕</button>
+      </div>
+    </div>
+    <div id="scriptsList" class="scripts-list"></div>
+    <div class="resize-handle resize-handle-scripts"></div>
+  </aside>
+
+  <main class="editor-layout">
+    <div id="blocklyDiv"></div>
+
+    <aside id="previewContainer" class="preview-container">
+      <div class="preview-header">
+        <span>Preview</span>
+        <div class="button-group">
+          <button id="togglePreview" type="button" title="Collapse/Expand">▲</button>
+          <button id="closePreview" type="button" title="Close">✕</button>
+        </div>
+      </div>
+      <iframe id="previewIframe" class="preview-iframe" sandbox="allow-scripts allow-same-origin"></iframe>
+      <div id="resizeHandle" class="resize-handle"></div>
+    </aside>
+  </main>
+
+  <noscript>
+    <div style="padding: 2rem; text-align: center;">
+      <h2>JavaScript Required</h2>
+      <p>Easy Script requires JavaScript to run.</p>
+    </div>
+  </noscript>
+  <div id="mobile-portrait-message" style="display: none;">
+    <div class="mobile-message-content">
+      <h2>📱 Landscape Recommended</h2>
+      <p>Easy Script works best in landscape mode on mobile devices.</p>
+      <p>For the best experience, rotate your device or use a computer.</p>
+      <div class="rotate-icon">↻</div>
+      <button id="continueAnyway" class="continue-btn">Continue Anyway</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+  <script src="block.js"></script>
+  <script src="toolbox.js"></script>
+  <script src="themes/default.js"></script>
+  <script src="themes/modern.js"></script>
+  <script src="themes/dark.js"></script>
+  <script src="script-gestion.js"></script>
+  <script src="project.js"></script>
+  <script src="preview.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

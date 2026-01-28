@@ -1,0 +1,161 @@
+@keyframes editorSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes toolbarSlide {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes buildPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 165, 0, 0); }
+}
+
+@keyframes runGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+  50% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+}
+
+@keyframes toolboxSlideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes rowSlideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slideFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scriptSlideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes projectSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes headerShine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes selectedPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 151, 255, 0.5); }
+  50% { box-shadow: 0 0 0 4px rgba(76, 151, 255, 0); }
+}
+
+.editor-layout {
+  animation: editorSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toolbar {
+  animation: toolbarSlide 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toolbar-title {
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+#Build {
+  animation: buildPulse 2s ease-in-out infinite;
+}
+
+#Run {
+  animation: runGlow 2s ease-in-out infinite;
+}
+
+.blocklyToolboxDiv {
+  animation: toolboxSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.Row {
+  animation: rowSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.RowEV { animation-delay: 0.05s; }
+.RowCO { animation-delay: 0.1s; }
+.RowMO { animation-delay: 0.15s; }
+.RowCA { animation-delay: 0.2s; }
+.RowSN { animation-delay: 0.25s; }
+.RowLO { animation-delay: 0.3s; }
+.RowMA { animation-delay: 0.35s; }
+.RowTE { animation-delay: 0.4s; }
+.RowLI { animation-delay: 0.45s; }
+.RowCL { animation-delay: 0.5s; }
+.RowSY { animation-delay: 0.55s; }
+.RowVA { animation-delay: 0.6s; }
+.RowFU { animation-delay: 0.65s; }
+
+.preview-container {
+  animation: panelFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scripts-panel:not(.hidden) {
+  animation: slideFromLeft 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.projects-panel:not(.hidden) {
+  animation: slideFromRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.script-row {
+  animation: scriptSlideIn 0.3s ease backwards;
+}
+
+.project-row {
+  animation: projectSlideIn 0.3s ease backwards;
+}
+
+.preview-header::before,
+.scripts-panel-header::before,
+.projects-panel-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: headerShine 6s linear infinite;
+}
+
+.script-row.selected,
+.project-row.active {
+  animation: selectedPulse 2s ease-in-out infinite;
+}
